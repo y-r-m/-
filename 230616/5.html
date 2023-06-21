@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="string"></h1>
+    <h1 id="demo"></h1>
+  </body>
+  <script>
+    let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let length = text.length;
+    console.log(text);
+    console.log(length);
+
+    let text1 = "Apple, Banana, Kiwi";
+    let part = text1.slice(7, 13);
+    console.log(text1);
+    console.log(part);
+
+    let text2 = "Please visit Microsoft!";
+    let newText = text2.replace("Microsoft", "w3Schools");
+    console.log(text2);
+    console.log(newText);
+
+    let text3 = "Hello World!";
+    let text4 = text3.toUpperCase();
+    console.log(text3);
+    console.log(text4);
+
+    let text5 = text3.toLowerCase();
+    console.log(text5);
+
+    let text6 = "Hello";
+    let text7 = "World";
+    let text8 = text6.concat(" ", text7);
+    console.log(text8);
+
+    let search = "Please locate where 'locate' occurs!";
+    let index = search.lastIndexOf("Jhon");
+    let index2 = search.indexOf("locate", 15);
+    console.log(search);
+    console.log(index);
+    console.log(index2);
+
+    let temp = `Hello World!`;
+    console.log(temp);
+
+    let firstName = "Jhon";
+    let lastName = "Doe";
+    let temp2 = `Welcome ${firstName}, ${lastName}!`;
+    console.log(temp2);
+
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo").innerHTML = fruits.toString();
+  </script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2행 4열 그리드</title>
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">내용1</div>
+      <div class="item">내용2</div>
+      <div class="item">내용3</div>
+      <div class="item">내용4</div>
+      <div class="item">내용5</div>
+      <div class="item">내용6</div>
+    </div>
+  </body>
+</html>

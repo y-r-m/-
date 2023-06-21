@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="root2"></div>
+    <div id="root3"></div>
+    <div id="root4"></div>
+
+    <script>
+      document.getElementById("root");
+      ReactDOM.render(React.createElement("div", null, "hello!"), root);
+
+      const root2 = document.getElementById("root2");
+      function MyComponent() {
+        return React.createElement("h1", null, "hello!");
+      }
+      ReactDOM.render(React.createElement(MyComponent), root2);
+    </script>
+
+    <script type="text/babel">
+      //babel 사용 -> 최신 작업 스크립트 이해, 타입 지정必
+      const root3 = document.getElementById("root3");
+      function MyComponent() {
+        return React.createElement("h2", null, "함수형 컴포넌트 입니다.");
+      }
+      ReactDOM.render(<MyComponent />, root3);
+
+      const root4 = document.getElementById("root4");
+      function Greeting(props) {
+        return React.createElement(
+          "h2",
+          null,
+          `안녕하세요, 제 이름은 ${props.name}입니다.`
+        );
+      }
+      //   ReactDOM.render(<Greeting name={"홍길동"} />, root4); //아래 코드와 동일
+      ReactDOM.render(React.createElement(Greeting, { name: "장예림" }), root4);
+    </script>
+  </body>
+</html>

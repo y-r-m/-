@@ -1,0 +1,21 @@
+* {
+  font-family: "Moirai One", cursive;
+  text-align: center;
+  padding: 50px;
+  justify-content: center;
+  align-content: center;
+  background-color: lightgray;
+}
+.clock {
+  display: inline;
+  background-color: rgba(124, 167, 236, 0.4);
+  width: 450px;
+  height: 100px;
+  border: 3px solid darkblue;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
+  justify-content: center;
+  align-content: center;
+}

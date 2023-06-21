@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+  </head>
+  <body>
+    <div id="weather"></div>
+    <script>
+      const weather = document.getElementById("weather");
+      const API_KEY = "b97e9a230a705e74ef84cf6287383f7a"; //api 키
+
+      function getWeather(lat, lon) {
+        console.log(lat, lon);
+        fetch(
+          //api 로드 `` 사용시 {변수명}앞 $기호 넣어주기
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (json) {
+            console.log(json); //온도와 습도 정보 불러옴
+            const temp = json.main.temp;
+            const humidity = json.main.humidity;
+            weather.innerText = `${temp} @ ${humidity}`;
+          });
+      }
+
+      function handleGeoSuccesss(pos) {
+        //position 위치, 위도-경도 정보 불러오기
+        console.log(pos);
+        console.log(pos.coords.latitude);
+        console.log(pos.coords.longitude);
+
+        const latitude = pos.coords.latitude;
+        const longitude = pos.coords.longitude;
+        console.log(latitude);
+        console.log(longitude);
+        getWeather(latitude, longitude);
+      }
+      function handleGeoError() {
+        console.log("error!");
+      }
+
+      function init() {
+        //초기화, 현재 위치 정보(로드 성공 or 실패)
+        navigator.geolocation.getCurrentPosition(
+          handleGeoSuccesss,
+          handleGeoError
+        );
+      }
+      init();
+    </script>
+  </body>
+</html>

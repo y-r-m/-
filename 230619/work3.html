@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실시간 채팅</title>
+  </head>
+  <body>
+    <header>실시간 채팅</header>
+    <main>
+      <section>
+        <div class="output" style="display: flex; text-align: center">
+          <div id="print_user" style="font-weight: bold"></div>
+          <div id="print_text"></div>
+        </div>
+        <div class="wrap" style="display: flex; text-align: center">
+          <div id="input">
+            <input id="userName" />
+            <input id="text" onchange="print()" />
+          </div>
+          <button class="submit">전송</button>
+        </div>
+      </section>
+    </main>
+    <script src="work3.js"></script>
+  </body>
+</html>

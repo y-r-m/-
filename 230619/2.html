@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <script>
+      /* function hello(arr) {
+        return arr.join("");
+      }
+      const strings = ["Hello", " ", "World", "!"];
+      document.write(hello(strings));
+      document.write("<br>");
+
+      let txt = "DSKQWLKAODK";
+      document.write(txt.includes("DSK"), "<br>");
+      document.write(txt.startsWith("DSKQ"), "<br>");
+      document.write(txt.startsWith("SKQWL"), "<br>");
+      document.write(txt.endsWith("ODK"), "<br>");
+
+      let score = 69;
+      let money = 0;
+
+      score = prompt("몇 점이니");
+      document.write("<br>");
+      if (score > 90) {
+        document.write("참 잘했습니다. <br>");
+      } else if (score > 80) {
+        document.write("잘했습니다. <br>");
+      } else if (score > 70) {
+        document.write("그냥 했습니다. <br>");
+      } else {
+        money = 0;
+      }
+
+      document.write(money);
+      document.write("<br>");
+
+      let score2 = 91;
+      let money2 = 1000;
+
+      score2 > 90
+        ? (money2 += 10000)
+        : score2 > 80
+        ? (money2 += 5000)
+        : score2 > 70
+        ? (money2 += 1000)
+        : (money = 0);
+
+      money2 += 10000;
+      money2 = money2 + 10000;
+      document.write(money2);
+
+      document.write("<br>");
+
+      let day = new Date();
+      console.log(day.getDate());
+      console.log(day.getDay()); //요일 0 일요일
+      console.log(day.getFullYear());
+
+      switch (new Date().getDay()) {
+        case 0:
+          document.write("일요일 입니다.");
+          break;
+        case 1:
+          document.write("월요일 입니다.");
+          break;
+        case 2:
+          document.write("화요일 입니다.");
+          break;
+        case 3:
+          document.write("수요일 입니다.");
+          break;
+        case 4:
+          document.write("목요일 입니다.");
+          break;
+        case 5:
+          document.write("금요일 입니다.");
+          break;
+        case 6:
+          document.write("토요일 입니다.");
+          break;
+      }
+
+      for (let i = 1; i < 10; i++) {
+        for (let j = 1; j < 10; j++) {
+          document.write(`${i} x ${j} = ${i * j} <br>`);
+        }
+      } */
+
+      /* let arr = [10, 20, 30, 40, 50];
+      arr.forEach((e) => console.log(e * 3));
+
+      const numbers = [1, 2, 3, 4, 5];
+      const squreNum = numbers.map(function (number) {
+        return number ** 2;
+      });
+      console.log(squreNum); */
+
+      /* function person(first, last, age) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+      }
+      const myFather = new person("father", "Jang", 53);
+      const myMother = new person("mother", "Yang", 50);
+
+      document.write(`아빠 나이는 ${myFather.age} <br>`);
+      document.write(`엄마 나이는 ${myMother.age} <br>`);
+
+      function myDisplayer(values) {
+        document.getElementById("demo").innerHTML = myFirst + mySecond;
+      }
+      function myFirst() {
+        myDisplayer("hello");
+      }
+      function mySecond() {
+        myDisplayer("goodbye");
+      }
+      mySecond();
+      myFirst(); */
+
+      setInterval(myFunction, 1000);
+
+      function myFunction() {
+        let d = new Date();
+        document.getElementById("demo").innerHTML =
+          d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+      }
+    </script>
+  </body>
+</html>

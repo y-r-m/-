@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Orbit&family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Clock</title>
+    <link rel="stylesheet" href="ex1.css" />
+  </head>
+  <body>
+    <div id="clock" class="clock"></div>
+  </body>
+  <script>
+    const clock = document.querySelector("#clock");
+    function getClock() {
+      const date = new Date();
+      const hours = String(date.getHours()).padStart(2, "0");
+      const min = String(date.getMinutes()).padStart(2, "0");
+      const sec = String(date.getSeconds()).padStart(2, "0");
+      clock.innerText = `${hours} : ${min} : ${sec}`;
+    }
+    getClock();
+    setInterval(getClock, 1000);
+  </script>
+</html>

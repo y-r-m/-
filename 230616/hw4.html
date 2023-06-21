@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/c64d19ee5f.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <link rel="stylesheet" href="hw4.css" /> -->
+    <title>이미지 슬라이더</title>
+  </head>
+  <body>
+    <div class="slider">
+      <img src="image/image1.jpg" alt="" />
+      <img src="image/image2.jpg" alt="" />
+      <img src="image/image3.jpg" alt="" />
+      <img src="image/image4.jpg" alt="" />
+      <img src="image/image5.jpg" alt="" />
+      <img src="image/image6.jpg" alt="" />
+    </div>
+    <i class="fa fa-chevron-left" id="prevbtn"></i>
+    <i class="fa fa-chevron-right" id="nextbtn"></i>
+  </body>
+  <script>
+    let slides = document.querySelector(".slider");
+    let prev = document.getElementById("prev");
+    let next = document.getElementById("next");
+    const images = slides.getElementsByTagName("img");
+    let current = 0;
+
+    prevbtn.addEventListener("click", preSlide);
+    nextbtn.addEventListener("click", nextSlide);
+
+    function preSlide() {
+      images[current].style.display = "none";
+      current = (current - 1 + images.length) % images.length;
+      images[current].style.display = "block";
+      console.log(current);
+    }
+    function nextSlide() {
+      images[current].style.display = "none";
+      current = (current + 1) % images.length;
+      images[current].style.display = "block";
+      console.log(current);
+    }
+  </script>
+</html>

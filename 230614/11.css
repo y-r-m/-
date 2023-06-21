@@ -1,0 +1,8 @@
+div.static {
+  position: static;
+  border: 3px solid #73ad21;
+}
+
+.box {
+  font-family: "Gasoek One", sans-serif;
+}

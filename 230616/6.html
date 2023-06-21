@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML element</title>
+  </head>
+  <body>
+    <h1>getElementById</h1>
+    <p id="demo-a"></p>
+
+    <hr />
+
+    <h1>getElementsByClassName</h1>
+    <div class="example">Element1</div>
+    <div class="example collect">Element2</div>
+
+    <hr />
+
+    <h1>getElementByName</h1>
+    <p>First Name : <input name="fname" type="text" value="Michael" /></p>
+    <p>First Name : <input name="fname" type="text" value="Doug" /></p>
+    <p>The tag name od the first element with the name "fname" is :</p>
+    <p id="demo-b"></p>
+
+    <hr />
+
+    <h1>getElementByTagName</h1>
+    <p>An unordered list :</p>
+    <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <p>The innerHTML of the second li element is : </p>
+    <p id="demo-c"></p>
+    <hr>
+
+    <h1>counter</h1>
+    <h2 id="counter">0</h2>
+    <button id="increase">+1</button>
+    <button id="decrease">-1</button>
+    <hr>
+
+    <label for="name">이  름</label>
+    <input id="name" type="text">
+  </body>
+  <script>
+    document.getElementById("demo-a").innerText = "Hello world!";
+
+    const collect = document.getElementsByClassName("example");
+    console.log(collect);
+    collect[0].innerHTML = "Hello World!";
+
+    let elements = document.getElementsByName("fname");
+    document.getElementById("demo-b").innerHTML = elements[0].tagName;
+
+    const collection=document.getElementsByTagName("li");
+    document.getElementById("demo-c").innerHTML=collection[1].innerHTML;
+
+    
+  </script>
+</html>

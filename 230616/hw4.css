@@ -1,0 +1,31 @@
+.wrap {
+  display: flex;
+}
+.container {
+  width: 1280px;
+  height: auto;
+}
+
+.container > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.button {
+  display: flex;
+}
+.prevbtn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  left: 5%;
+  cursor: pointer;
+}
+
+.nextbtn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  right: 5%;
+  cursor: pointer;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="hello"></h1>
+    <h1 id="name"></h1>
+  </body>
+
+  <script>
+    const hello = document.getElementById("hello");
+    console.log(hello);
+    hello.innerText = 12;
+    function myFunction(p1, p2) {
+      return p1 * p2;
+    }
+    let values = myFunction(3, 4);
+    hello.innerText = values;
+
+    // console.log(myFunction(3, 4));
+    // let values = myFunction(3, 4);
+    // hello.innerHTML = myFunction(3, 4);
+    const name = document.getElementById("name");
+    console.log(name);
+    const person = {
+      firstName: "Yerim",
+      lastName: "Jang",
+      age: 26,
+    };
+    console.log(person.firstName);
+    console.log(person.age);
+    name.innerText = person.firstName;
+    // console.log(person.firstName);
+    // const firstName = document.getElementById("name");
+    // name.innerHTML = name;
+    const myname = document.getElementById("myname");
+    const jyr = {
+      fst: "Yerim",
+      lst: "Jang",
+      id: 911,
+      fullName: function () {
+        return this.fst + " " + this.lst;
+      },
+    };
+    console.log(jyr.fullName());
+    hello.innerHTML = jyr.fullName();
+  </script>
+</html>

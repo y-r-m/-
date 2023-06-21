@@ -1,0 +1,87 @@
+* {
+  font-family: "Orbit", sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+header {
+  background-color: skyblue;
+  height: 70px;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+}
+nav {
+  display: block;
+  position: fixed;
+  background-color: lightblue;
+  padding: 10px;
+  text-align: left;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  color: white;
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+}
+main {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  padding: 50px;
+}
+section {
+  background-color: rgb(226, 226, 242);
+  width: 300px;
+  height: 500px;
+  border: 3px solid blue;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  padding: 10px;
+}
+.at1 {
+  background-color: rgba(56, 88, 41, 0.3);
+}
+.at2 {
+  background-color: rgba(203, 120, 87, 0.1);
+}
+.aside {
+  background-color: rgb(226, 226, 242);
+  width: 300px;
+  height: 500px;
+  border: 3px solid blue;
+  text-align: center;
+  justify-content: flex-end;
+  align-content: center;
+  margin-left: 200px;
+  text-align: center;
+}
+.aside > ul {
+  list-style-type: none;
+  text-align: center;
+}
+footer {
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 24px;
+    color: palevioletred;
+  }
+  p {
+    font-size: 12px;
+  }
+}

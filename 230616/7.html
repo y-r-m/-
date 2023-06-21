@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function add(a, b) {
+      return a + b;
+    }
+    const sum = add(1, 2);
+    console.log(sum);
+
+    const add2 = (a, b) => {
+      return a + b;
+    };
+    const sum2 = add2(1, 2);
+    console.log(sum2);
+
+    const ironMan = {
+      name: "토니스타크",
+      actor: "로버트 다우니 주니어",
+      alias: "아이언맨",
+    };
+    const { name, actor, alias } = ironMan;
+    console.log(name);
+    console.log(actor);
+    console.log(alias);
+
+    const onChange = (event) => {
+      const {
+        target: { value },
+      } = event;
+      console.log(value);
+    };
+
+    let arr = [1234, "test", true];
+    arr.length = 5;
+    arr[5] = "apple";
+    arr.push("banana");
+    console.log(arr);
+  </script>
+</html>
