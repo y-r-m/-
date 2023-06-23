@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login_CDN</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="login"></div>
+
+    <script type="text/babel">
+      function LoginForm() {
+        const [name, setname] = React.useState("");
+        const [password, setpassword] = React.useState("");
+
+        const handleUsernameChange = (event) => {
+          setname(event.target.value);
+        };
+        const handlePasswordChange = (event) => {
+          setpassword(event.target.value);
+        };
+        const handleSubmit = (event) => {
+          event.preventDefault();
+
+          console.log("username", name);
+          console.log("password", password);
+        };
+        return (
+          <form onSubmit={handleSubmit}>
+            <label>
+              Username :
+              <input type="text" value={name} onChange={handleUsernameChange} />
+            </label>
+            <label>
+              <br />
+              Password :
+              <input
+                type="password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </label>
+            <br />
+            <button type="submit">Log in</button>
+          </form>
+        );
+      }
+      ReactDOM.render(<LoginForm />, document.getElementById("login"));
+    </script>
+  </body>
+</html>

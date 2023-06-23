@@ -1,0 +1,7 @@
+// 절대 경로
+{
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "includes": ["src"]
+}

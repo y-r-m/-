@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React CDN</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="intro"></div>
+
+    <script type="text/babel">
+      const intro = document.getElementById("intro");
+      const about = React.createElement(
+        "h1",
+        { id: "am", style: { color: "puple" } },
+        "ABOUT ME"
+      );
+      ReactDOM.render(about);
+    </script>
+  </body>
+</html>
