@@ -34,6 +34,7 @@ const Input = ({ onNameChange, onFormSubmit }) => {
           border: "none",
           outline: "none",
           textShadow: "1px 1px 2px white",
+          marginTop: "10px",
         }}
         onChange={outputName}
         onKeyPress={handleKeyPress}
