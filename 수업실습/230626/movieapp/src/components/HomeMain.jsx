@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, useNavigate } from "react-router-dom";
 import styles from "styles/HomeMain.module.css";
+
 function HomeMain() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -19,63 +20,63 @@ function HomeMain() {
       });
   }, []);
 
-  const Movie = () => {
-    return !loading
-      ? movies.map((movie) => (
-          <div
-            key={movie.id}
-            id={movie.id}
-            title={movie.title}
-            images={movie.medium_cover_image}
-          >
-            <Link to={`movie/${movie.id}`}></Link>
-            <img src={movie.medium_cover_image} alt="bgImage" />
-          </div>
-        ))
-      : null;
-  };
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate = useNavigate();
 
   const prevImage = () => {
     if (currentImageIndex !== 0) {
       setCurrentImageIndex(currentImageIndex - 1);
     }
-
-    /*     setCurrentImageIndex((prevIndex) => {
-      if (prevIndex !== 0) {
-        return images.length - 1;
-      } else {
-        return prevIndex - 1;
-      }
-    }); */
   };
 
   const nextImage = () => {
     if (currentImageIndex !== images.length - 1) {
       setCurrentImageIndex(currentImageIndex + 1);
     }
-    /*     setCurrentImageIndex((prevIndex) => {
-      if (prevIndex === images.length - 1) {
-        return 0;
-      } else {
-        return prevIndex + 1;
-      }
-    }); */
   };
+
+  const handleImageClick = (movieId) => {
+    navigate(`/movie/${movieId}`);
+  };
+
   return (
-    <div>
-      <div className={styles.sliderContainer}>
-        {!loading
-          ? movies.map((movie) => (
-              <div
-                key={movie.id}
-                id={movie.id}
-                title={movie.title}
-                images={movie.medium_cover_image}
-              ></div>
-            ))
-          : null}
+    <div className={styles.sliderContainer}>
+      <div
+        className={styles.sliderTrack}
+        style={{
+          transform: `translateX(-${currentImageIndex * 100}%)`,
+        }}
+      >
+        {!loading &&
+          movies.map((movie, index) => (
+            <div
+              key={movie.id}
+              id={movie.id}
+              title={movie.title}
+              images={movie.medium_cover_image}
+              className={styles.slideImage}
+              onClick={() => handleImageClick(movie.id)}
+            >
+              <img
+                src={movie.medium_cover_image}
+                alt={movie.title}
+                className={styles.slideImage}
+              />
+              <div className={styles.title}>{movie.title}</div>
+              {movie.images &&
+                Array.isArray(movie.images) &&
+                movie.images.map((image, imageIndex) => (
+                  <img
+                    src={image}
+                    alt={movie.title}
+                    className={styles.slideImage}
+                    key={imageIndex}
+                  />
+                ))}
+            </div>
+          ))}
       </div>
+
       <button onClick={prevImage} className={styles.prevButton}>
         &lt;
       </button>
@@ -85,13 +86,7 @@ function HomeMain() {
           transform: `translateX(-${currentImageIndex * 100}%)`,
         }}
       >
-        <div className={styles.slide}>
-          <img
-            src={images[currentImageIndex]}
-            alt="Slider"
-            style={{ width: "300px" }}
-          />
-        </div>
+        <div className={styles.slide}></div>
       </div>
       <button onClick={nextImage} className={styles.nextButton}>
         &gt;

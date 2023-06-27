@@ -1,15 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import HomeMain from "components/HomeMain";
-import HomeHeader from "components/HomeHeader";
-import style from "styles/HomeStyle.module.css";
+import style from "styles/HomeMain.module.css";
 
 function Home() {
   return (
-    <div>
-      <div>
-        <HomeHeader />
-      </div>
-      <div className={style.homestyle}>
+    <div className={style.homeStyle}>
+      <div className={style.mainStyle}>
         <HomeMain />
       </div>
     </div>

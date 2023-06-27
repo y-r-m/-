@@ -1,7 +1,9 @@
-import React from 'react'
-
+import React from "react";
+import style from "styles/HomeFooter.module.css";
 export default function HomeFooter() {
   return (
-    <div>HomeFooter</div>
-  )
+    <div className={style.footerStyle}>
+      <small>Team 14</small>
+    </div>
+  );
 }
