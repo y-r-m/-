@@ -6,6 +6,7 @@ function HomeMain() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [images, setImages] = useState([]);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -39,6 +40,9 @@ function HomeMain() {
     navigate(`/movie/${movieId}`);
   };
 
+  const handleShowAll = () => {
+    setShowAll(true);
+  };
   return (
     <div className={styles.sliderContainer}>
       <div
@@ -91,6 +95,12 @@ function HomeMain() {
       <button onClick={nextImage} className={styles.nextButton}>
         &gt;
       </button>
+
+      {!showAll && (
+        <button onClick={handleShowAll} className={styles.showAllButton}>
+          전체보기
+        </button>
+      )}
     </div>
   );
 }

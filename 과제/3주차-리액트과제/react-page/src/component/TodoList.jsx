@@ -53,7 +53,7 @@ function InputToDo({ initialToDos }) {
               border: "2px solid rgba(0,0,0,0.3)",
               backgroundColor: "rgba(233,233,233,0.3)",
               borderRadius: "5px",
-              width: "200px",
+              width: "300px",
               margin: "4px",
               padding: "3px",
             }}
