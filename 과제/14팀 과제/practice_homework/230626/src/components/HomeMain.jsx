@@ -13,6 +13,7 @@ export default function HomeMain() {
   const [sliderStyle, setSliderStyle] = useState({});
   const leftBtn = useRef();
   const rightBtn = useRef();
+  const [showAll, setShowAll] = useState(false);
 
   const handleLeftBtn = () => {
     if (sliderIndex !== 0) {
@@ -52,6 +53,10 @@ export default function HomeMain() {
       );
   }, [data]);
 
+  const handleShowBtn = () => {
+    setShowAll(!showAll);
+  };
+
   return (
     <main className={styles.home_main}>
       <section className={styles.slider_wrapper}>
@@ -90,6 +95,33 @@ export default function HomeMain() {
           onClick={() => handleRightBtn()}
           ref={rightBtn}
         >{`>`}</button>
+      </section>
+
+      <section className={styles.grid_section}>
+        <button onClick={handleShowBtn}>{showAll ? "Close" : "Open"}</button>
+
+        <div className={styles.image_grid}>
+          {loading ? (
+            <p className={styles.loading_text}>Loading...</p>
+          ) : (
+            moviesInfo.map((val) => (
+              <article
+                className={styles.movieInfoBox}
+                key={val[2]}
+                onClick={() => {
+                  handleMovieClick(val[2]);
+                }}
+              >
+                <img
+                  src={val[0]}
+                  alt={`영화 ${val[1]} 포스터`}
+                  onError={(e) => (e.target.parentNode.style.display = "none")}
+                />
+                <p className={styles.movie_title}>{val[1]}</p>
+              </article>
+            ))
+          )}
+        </div>
       </section>
     </main>
   );

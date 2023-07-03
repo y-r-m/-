@@ -7,4 +7,12 @@ const initialState = {
 const MovieSlice = createSlice({
   name: "movie",
   initialState,
+  reducers: {
+    updateMovieStore: (state, action) => {
+      return (state = { ...state, ...action.payload });
+    },
+  },
 });
+
+export const { updateMovieStore } = MovieSlice.actions;
+export default MovieSlice.reducer;
