@@ -1,0 +1,24 @@
+.search_main {
+  width: 100%;
+  margin-top: 150px;
+}
+.filteredMovies_wrapper {
+  padding: 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.movie_wrapper {
+  width: 230px;
+  color: white;
+  cursor: pointer;
+}
+.movie_img {
+  border-radius: 10px;
+}
+.title {
+  font-weight: bold;
+  line-height: 1.2;
+  margin-top: 10px;
+}
