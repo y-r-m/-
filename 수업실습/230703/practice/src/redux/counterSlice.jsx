@@ -1,15 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 const initialState = {
-  value: 0,
+  value: 0, //값이 많아질때 관리해주기 좋음
 };
 const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
-    incre: (state, action) => {
-      state.value = state.value + 1;
+    increment: (state, action) => {
+      state.value = state.value + 1; //객체이기 때문에 .value
     },
-    decre: (state, action) => {
+    decrement: (state, action) => {
       state.value = state.value - 1;
     },
     reset: (state, action) => {
@@ -18,5 +19,5 @@ const counterSlice = createSlice({
   },
 });
 
-export const { incre, decre, reset } = counterSlice.actions;
+export const { increment, decrement, reset } = counterSlice.actions;
 export default counterSlice;

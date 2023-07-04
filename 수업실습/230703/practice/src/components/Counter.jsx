@@ -1,39 +1,28 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { incre, decre, reset } from "../redux/counterSlice";
+import React, { useReducer, useState } from "react";
 
-export default function Counter() {
-  const dispatch = useDispatch(); //action을 취할 수 있도록
-  const count = useSelector((state) => {
-    //상태값 변경을 도와줌
-    return state.counter.value;
-  });
+const initialState = 0; //값이 많아질 때 관리를 쉽게하려면 초기값 설정해주는게 좋음
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "INCRESE":
+      return state + 1;
+    case "DECRESE":
+      return state - 1;
+    case "RESET":
+      return initialState;
+    default:
+      return state;
+  }
+};
 
+export default function CountReducer() {
+  const [count, dispatch] = useReducer(reducer, initialState);
   return (
     <div>
-      <h1>Counter-Redux</h1>
-      <p>카운터 : {count}</p>
-      <button
-        onClick={() => {
-          dispatch(incre());
-        }}
-      >
-        증가
-      </button>
-      <button
-        onClick={() => {
-          dispatch(decre());
-        }}
-      >
-        감소
-      </button>
-      <button
-        onClick={() => {
-          dispatch(reset());
-        }}
-      >
-        리셋
-      </button>
+      <h1>숫자 카운트</h1>
+      <p>숫자 :{count}</p>
+      <button onClick={() => dispatch({ type: "INCRESE" })}>증가</button>
+      <button onClick={() => dispatch({ type: "DECRESE" })}>감소</button>
+      <button onClick={() => dispatch({ type: "RESET" })}>리셋</button>
     </div>
   );
 }
