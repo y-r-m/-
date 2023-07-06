@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@300&display=swap");
+
+.cafe {
+  width: 320px;
+  height: 568px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+.header {
+  width: 320px;
+  height: 80px;
+  display: inline-flex;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+.content {
+  margin-left: 60px;
+  margin-top: 20px;
+}
+.heart {
+  width: auto;
+  height: 20px;
+  margin-right: 5px;
+  align-content: center;
+}
+.insta {
+  width: auto;
+  height: 20px;
+  margin-right: 5px;
+  align-content: center;
+}
+.back {
+  width: auto;
+  height: 20px;
+  margin-top: 20px;
+  margin-right: 60px;
+  align-content: center;
+}
+.cafe_explain {
+  position: relative;
+  margin-top: 20%;
+  transform: translateY(-50%);
+}
+.cafe_img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cafe_detail {
+  color: #8f8f90;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+  text-align: left;
+  position: absolute;
+  top: 80px;
+  left: 20px;
+}
+.seat_btn {
+  text-decoration: none;
+  background-color: #30a2ff;
+  color: white;
+  width: 84px;
+  height: 30px;
+  position: absolute;
+  top: 80px;
+  left: 220px;
+  border-radius: 10px;
+  font-size: 13px;
+  border: none;
+  outline: none;
+  padding: 2px;
+  margin: 3px;
+}
+.icon {
+  margin: 5px;
+}
+.menu {
+  display: block;
+  position: relative;
+  list-style: none;
+  justify-content: center;
+  top: 180px;
+  left: 20px;
+}
+
+.more_btn {
+  text-align: center;
+  background-color: rgba(3, 3, 3, 0);
+  border: none;
+  border-radius: 5px;
+  position: absolute;
+  top: 120%;
+  left: 43%;
+  transform: translate(-50%, -50%);
+}

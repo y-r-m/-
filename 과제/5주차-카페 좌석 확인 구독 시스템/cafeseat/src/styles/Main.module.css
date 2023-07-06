@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto:wght@300&display=swap");
+
+.main {
+  width: 320px;
+  height: 568px;
+  position: absolute;
+}
+.title {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: relative;
+  left: 20px;
+}
+.sub_list {
+  position: relative;
+  list-style: none;
+  right: 22px;
+}
+.cafe_list {
+  background-color: #eeeeee;
+  text-decoration: none;
+  width: 274px;
+  height: 115px;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 15px;
+  display: flex;
+  padding: 10px;
+}
+.cafe_detail {
+  text-decoration: none;
+  color: black;
+  border-radius: 10px;
+  margin: 0 !important;
+}
+.heart {
+  position: relative;
+  width: 19px;
+  height: 19px;
+  top: 5px;
+  left: 130px;
+}
+.cate_btn {
+  text-decoration: none;
+  background-color: #30a2ff;
+  color: white;
+  width: auto;
+  position: relative;
+  height: 20px;
+  top: -15px;
+  font-size: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 3px;
+  text-align: center;
+}
+.main_img1 {
+  width: 109px;
+  height: 93px;
+  top: 76px;
+  left: 36px;
+  border-radius: 10px;
+  padding: 2px;
+}
