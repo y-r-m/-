@@ -1,62 +1,99 @@
-"use client";
 import { useState } from "react";
-import LinkModal from "./LinkModal";
-import { useDispatch } from "react-redux";
-import { setInputTitle } from "@/redux/titleSlice";
 import Layout from "./Layout";
+import Image from "next/image";
 
 interface ModalProps {
-  handleBtn: () => void;
+  handleMakeModalBtn: () => void;
+  handleLinkModalBtn: () => void;
 }
 
-const MakeModal: React.FC<ModalProps> = ({ handleBtn }) => {
-  const [openLinkModal, setOpenLinkModal] = useState(false);
-  const [inputTitle, setInputTitleLocal] = useState("");
-  const dispatch = useDispatch();
-
+const MakeModal: React.FC<ModalProps> = ({
+  handleMakeModalBtn,
+  handleLinkModalBtn,
+}) => {
   const onLinkModalOpen = () => {
-    dispatch(setInputTitle(inputTitle));
-    setOpenLinkModal(true);
+    handleMakeModalBtn();
+    handleLinkModalBtn();
   };
-  const onLinkModalClose = () => {
-    setOpenLinkModal(false);
+  const isSelectModal = (modal: string) => {
+    setSelectedModal(modal);
   };
-  const handleInputChange = (e: any) => {
-    setInputTitleLocal(e.target.value);
+  const [selectedModal, setSelectedModal] = useState<string | null>(null);
+
+  const onNextButtonClick = () => {
+    if (selectedModal === "note") {
+      // 노트 모달 선택 시 처리할 로직
+    } else if (selectedModal === "video") {
+      // 영상 모달 선택 시 처리할 로직
+    } else if (selectedModal === "link") {
+      onLinkModalOpen();
+    }
   };
   return (
-    <Layout handleBtn={handleBtn}>
+    <Layout handleBtn={handleMakeModalBtn}>
       <div>
-        <div className="text-left">
-          <h1>강의 만들기</h1>
-          <input
-            type="text"
-            placeholder="제목을 입력해주세요.(선택)"
-            className="justify-left font-bold text-[12px] w-auto"
-            value={inputTitle}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="flex justify-between items-center">
-          <div className=" border-2 border-inherit rounded-md p-1">
+        <span className="flex text-[20px] font-semibold top-[40px] left-[34px]">
+          강의 만들기
+        </span>
+        <div className="flex justify-between items-center mt-[26px] gap-[19.6px]">
+          <div
+            id="note"
+            className={`flex flex-col items-center justify-center border-2 border-inherit rounded-md w-[222px] h-[153px] text-[18px] ${
+              selectedModal === "note" ? "bg-gray-100 border-blue-500" : ""
+            }`}
+            onClick={() => isSelectModal("note")}
+          >
+            <Image
+              src="/note.svg"
+              alt="note"
+              width={60}
+              height={60}
+              className="pb-[12px]"
+            />
             노트 만들기
           </div>
-          <div className=" border-2 border-inherit rounded-md p-1">
+          <div
+            id="video"
+            className={`flex flex-col items-center justify-center border-2 border-inherit rounded-md w-[222px] h-[153px] text-[18px] ${
+              selectedModal === "video" ? "bg-gray-100 border-blue-500" : ""
+            }`}
+            onClick={() => isSelectModal("video")}
+          >
+            <Image
+              src="/video.svg"
+              alt="video"
+              width={60}
+              height={60}
+              className="pb-[12px]"
+            />
             영상 강의 만들기
           </div>
           <div
-            className=" border-2 border-inherit rounded-md p-1"
-            onClick={onLinkModalOpen}
+            id="link"
+            className={`flex flex-col items-center justify-center border-2 border-inherit rounded-md w-[222px] h-[153px] text-[18px] ${
+              selectedModal === "link" ? "bg-gray-100 border-blue-500" : ""
+            }`}
+            onClick={() => isSelectModal("link")}
           >
+            <Image
+              src="/link.svg"
+              alt="link"
+              width={60}
+              height={60}
+              className="pb-[12px]"
+            />
             링크 만들기
           </div>
         </div>
-        <button className="rounded-md mt-3 p-2 text-white bg-blue-500  className= w-107 align-right">
+        <button
+          onClick={onNextButtonClick}
+          className="rounded-md ml-[599px] mt-[26px] text-white bg-blue-500 w-[107px] h-[45px] "
+        >
           다음
         </button>
       </div>
-      {openLinkModal && <LinkModal handleBtn={onLinkModalClose} />}
     </Layout>
   );
 };
+
 export default MakeModal;

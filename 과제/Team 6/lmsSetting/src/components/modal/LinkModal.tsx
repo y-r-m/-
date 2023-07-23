@@ -1,60 +1,78 @@
-"use client";
-import { useState } from "react";
-import DurationModal from "./DurationModal";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setInputContent } from "@/redux/contentSlice";
-import { useDispatch } from "react-redux";
+import { setInputTitle } from "@/redux/titleSlice";
 import Layout from "./Layout";
+import Image from "next/image";
 
 interface ModalProps {
-  handleBtn: () => void;
+  handleLinkModalBtn: () => void;
+  handleDurationModalBtn: () => void;
+  handleMakeModalBtn: () => void;
 }
 
-const LinkModal: React.FC<ModalProps> = ({ handleBtn }) => {
-  const [openDurationModal, setOpenDurationModal] = useState(false);
-  const inputValue = useSelector((state: any) => state.title);
-  const [inputContent, setInputContentLocal] = useState("");
+const LinkModal: React.FC<ModalProps> = ({
+  handleLinkModalBtn,
+  handleDurationModalBtn,
+  handleMakeModalBtn,
+}) => {
+  const inputTitle = useSelector((state: any) => state.title.inputTitle);
+  const inputContent = useSelector((state: any) => state.content.inputContent);
   const dispatch = useDispatch();
 
   const onDurationModalOpen = () => {
+    dispatch(setInputTitle(inputTitle));
     dispatch(setInputContent(inputContent));
-    setOpenDurationModal(true);
+    handleLinkModalBtn();
+    handleDurationModalBtn();
   };
-  const handleInputChange = (e: any) => {
-    setInputContentLocal(e.target.value);
+  const onLinkModalClose = () => {
+    handleLinkModalBtn();
+    handleMakeModalBtn();
+  };
+  const handleInputTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setInputTitle(e.target.value));
+  };
+  const handleInputContent = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    dispatch(
+      setInputContent(value.startsWith("http://") ? value : "http://" + value),
+    );
   };
   return (
-    <Layout handleBtn={handleBtn}>
+    <Layout handleBtn={onLinkModalClose}>
       <div className="text-left">
-        <h3 text-left>교육과정 &gt; 링크 만들기</h3>
-        <form>
-          <div>
-            <input
-              type="text"
-              placeholder="제목을 입력해주세요.(선택)"
-              value={inputValue}
-              className="justify-left font-bold text-[12px] w-auto"
-            />
-          </div>
+        <span className="flex text-[20px] font-semibold top-[33px] left-[34px] gap-[10px]">
+          강의 만들기
+          <Image src="/next_mark.svg" alt="next" width={7} height={10} />
+          링크 만들기
+        </span>
+        <div className="flex items-center py-[20px]">
           <input
             type="text"
-            name="link"
-            placeholder="내용을 입력해주세요."
-            className="justify-left text-[5px] w-auto border-2 border-inherit rounded-md p-1"
-            value={inputContent}
-            onChange={handleInputChange}
+            name="title"
+            placeholder="제목을 입력해주세요.(선택)"
+            className="justify-left text-[20px]"
+            value={inputTitle}
+            onChange={handleInputTitle}
           />
-        </form>
+        </div>
+        <input
+          type="text"
+          name="link"
+          placeholder="http://..."
+          className="justify-center text-[16px] w-[707px] h-[42px] flex-shrink-0 border-[1px] border-gray-300 bg-white rounded-md pl-[14px]"
+          value={inputContent}
+          onChange={handleInputContent}
+        />
         <button
           onClick={onDurationModalOpen}
-          className="rounded-md mt-3 p-2 text-white bg-blue-500 align-right"
+          className="rounded-md py-[15.5] px-[18.3] ml-[599px] mt-[20px] text-white bg-blue-500 w-[107px] h-[45px] "
         >
           다음
         </button>
       </div>
-
-      {openDurationModal && <DurationModal handleBtn={handleBtn} />}
     </Layout>
   );
 };
+
 export default LinkModal;
